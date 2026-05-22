@@ -5,6 +5,7 @@ import json
 import sys
 from datetime import UTC, datetime
 from pathlib import Path
+from typing import Any
 
 from pyshield import __version__
 from pyshield.engine import compliance, harvester, parser, runner, tracker
@@ -15,7 +16,7 @@ from pyshield.engine.runner import _safe_repr
 # ---------------------------------------------------------------------------
 
 
-def run_pipeline(target_files: list[str] | None = None) -> dict:
+def run_pipeline(target_files: list[str] | None = None) -> dict[str, Any]:
     """Execute the full validation pipeline and return a Provenance Ledger dict.
 
     Stages (per file):
@@ -27,7 +28,7 @@ def run_pipeline(target_files: list[str] | None = None) -> dict:
     """
     files: list[str] = target_files if target_files else tracker.get_changed_files()
 
-    ledger: dict = {
+    ledger: dict[str, Any] = {
         "timestamp": datetime.now(UTC).isoformat(),
         "git_files": files,
         "results": [],
@@ -35,7 +36,7 @@ def run_pipeline(target_files: list[str] | None = None) -> dict:
     }
 
     for filepath in files:
-        file_entry: dict = {
+        file_entry: dict[str, Any] = {
             "file": filepath,
             "functions": [],
             "policy": [],
@@ -81,7 +82,7 @@ def run_pipeline(target_files: list[str] | None = None) -> dict:
             test_results = runner.run_mutation_tests(
                 filepath, func, sibling_constants
             )
-            func_entry: dict = {
+            func_entry: dict[str, Any] = {
                 "name": func.name,
                 "lineno": func.lineno,
                 "params": func.params,
@@ -128,7 +129,7 @@ def run_pipeline(target_files: list[str] | None = None) -> dict:
 # ---------------------------------------------------------------------------
 
 
-def _render_markdown(ledger: dict) -> str:
+def _render_markdown(ledger: dict[str, Any]) -> str:
     """Render the Provenance Ledger as a human-readable Markdown summary."""
     status: str = "PASSED" if ledger["passed"] else "FAILED"
     lines: list[str] = [

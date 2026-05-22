@@ -1,5 +1,7 @@
 """FastMCP Server — stdio JSON-RPC bridge for the hybrid agent handoff."""
 
+from typing import Any
+
 from fastmcp import FastMCP
 
 from pyshield.cli import run_pipeline
@@ -38,7 +40,7 @@ def run_shield_check(files: list[str] | None = None) -> str:
 # ---------------------------------------------------------------------------
 
 
-def _build_agent_payload(ledger: dict) -> str:
+def _build_agent_payload(ledger: dict[str, Any]) -> str:
     """Compile the error contract Markdown for the calling external agent."""
     status: str = "PASSED" if ledger["passed"] else "FAILED"
     lines: list[str] = [

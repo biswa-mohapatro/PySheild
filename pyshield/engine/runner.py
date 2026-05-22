@@ -253,7 +253,7 @@ def _execute_single_mutation(
 
             module = importlib.util.module_from_spec(spec)
             try:
-                spec.loader.exec_module(module)  # type: ignore[union-attr]
+                spec.loader.exec_module(module)
             except Exception as exc:
                 error_msg = f"{type(exc).__name__}: {exc}\n{traceback.format_exc()}"
 
@@ -288,7 +288,7 @@ def _execute_single_mutation(
     )
 
 
-def _safe_open(mock_write: MagicMock):
+def _safe_open(mock_write: MagicMock) -> Any:
     """Return an ``open()`` replacement that mocks destructive modes (w/a/x).
 
     Read-mode calls are forwarded to the real built-in ``open`` so that

@@ -6,6 +6,7 @@ import json
 import re
 from dataclasses import dataclass
 from datetime import UTC, datetime
+from typing import Any
 from pathlib import Path
 
 # ---------------------------------------------------------------------------
@@ -175,7 +176,7 @@ def store_seal(
     safe_stem: str = Path(seal.filepath).stem
     seal_path: Path = out_dir / f"{safe_stem}.seal.json"
 
-    payload: dict = {
+    payload: dict[str, Any] = {
         "filepath": seal.filepath,
         "sha256": seal.sha256,
         "timestamp": seal.timestamp,
