@@ -1,5 +1,5 @@
 [project]
-name = "pyshield"
+name = "PySheild"
 version = "0.1.0"
 description = "Zero-token, air-gapped deterministic validation engine and MCP skill agent for hybrid AI development workflows"
 readme = "README.md"
