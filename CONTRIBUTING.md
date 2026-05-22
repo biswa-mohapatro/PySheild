@@ -1,4 +1,4 @@
-﻿# Contributing to PyShield
+# Contributing to PyShield
 
 Thank you for your interest in contributing.  PyShield is a community project and welcomes bug reports, documentation improvements, new policy rules, and broader engine enhancements.
 

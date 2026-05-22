@@ -1,4 +1,4 @@
-﻿[project]
+[project]
 name = "pyshield"
 version = "0.1.0"
 description = "Zero-token, air-gapped deterministic validation engine and MCP skill agent for hybrid AI development workflows"

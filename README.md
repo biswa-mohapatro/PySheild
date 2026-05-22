@@ -1,4 +1,4 @@
-﻿# PyShield
+# PyShield
 
 [![CI](https://github.com/biswa-mohapatro/PySheild/actions/workflows/ci.yml/badge.svg)](https://github.com/biswa-mohapatro/PySheild/actions/workflows/ci.yml)
 [![Python 3.13+](https://img.shields.io/badge/python-3.13%2B-blue.svg)](https://www.python.org/downloads/)
