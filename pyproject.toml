@@ -1,0 +1,67 @@
+﻿[project]
+name = "pyshield"
+version = "0.1.0"
+description = "Zero-token, air-gapped deterministic validation engine and MCP skill agent for hybrid AI development workflows"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.13"
+keywords = [
+    "ai", "mcp", "validation", "ast", "testing", "mutation-testing",
+    "compliance", "pii", "security", "devtools", "llm", "copilot",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Security",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+    "Typing :: Typed",
+]
+dependencies = [
+    "fastmcp>=2.0.0",
+]
+
+[project.urls]
+Homepage      = "https://github.com/biswa-mohapatro/PySheild"
+Source        = "https://github.com/biswa-mohapatro/PySheild"
+"Issue Tracker" = "https://github.com/biswa-mohapatro/PySheild/issues"
+Changelog     = "https://github.com/biswa-mohapatro/PySheild/blob/main/CHANGELOG.md"
+
+[project.scripts]
+pyshield     = "pyshield.cli:main"
+pyshield-mcp = "pyshield.mcp_server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.8.0",
+    "mypy>=1.11.0",
+]
+
+# ---------------------------------------------------------------------------
+# Tool configuration
+# ---------------------------------------------------------------------------
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 99
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "C4", "PTH", "RUF"]
+ignore  = ["E501"]
+
+[tool.mypy]
+python_version  = "3.13"
+strict          = true
+ignore_missing_imports = true
+
