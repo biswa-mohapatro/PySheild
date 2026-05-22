@@ -6,8 +6,8 @@ import json
 import re
 from dataclasses import dataclass
 from datetime import UTC, datetime
-from typing import Any
 from pathlib import Path
+from typing import Any
 
 # ---------------------------------------------------------------------------
 # Data structures
