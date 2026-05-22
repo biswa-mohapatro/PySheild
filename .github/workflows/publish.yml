@@ -69,10 +69,11 @@ jobs:
         name: dist
         path: dist/
 
-    # Trusted Publisher — no UV_PUBLISH_TOKEN or API key required.
-    # Configure once on pypi.org → Your Projects → Publishing → Add Trusted Publisher:
+    # Trusted Publisher — OIDC token generated automatically by GitHub.
+    # Configured on pypi.org → Projects → pyshield → Publishing → GitHub Actions
+    # Token claims automatically matched:
     #   owner:      biswa-mohapatro
-    #   repo:       pyshield
+    #   repo:       PySheild
     #   workflow:   publish.yml
     #   environment: pypi
     - name: Publish to PyPI
