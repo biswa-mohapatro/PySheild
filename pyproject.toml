@@ -38,6 +38,9 @@ pyshield-mcp = "pyshield.mcp_server:main"
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+[tool.hatch.build.targets.wheel]
+packages = ["pyshield"]
+
 [dependency-groups]
 dev = [
     "pytest>=8.0.0",
